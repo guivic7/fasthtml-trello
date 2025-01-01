@@ -1,0 +1,163 @@
+body {
+    height: 100vh;
+    font-size: 14px;
+}
+
+#board {
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    padding: 0;
+    background-color: rgb(0, 121, 191);
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+    padding: 12px;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    font-weight: 200;
+}
+
+h2 {
+    display: block;
+    margin: 0;
+    padding: 6px 8px 6px 12px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+ul#lists {
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+ul#lists li {
+    height: fit-content;
+    list-style: none;
+    background: #f1f2f4;
+    width: 272px;
+    border-radius: 12px;
+    margin: 0 6px;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+    padding: 8px;
+}
+
+ul.cards {
+    padding: 0 0 4px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+}
+
+ul#lists li ul.cards li {
+    margin: 8px 0 0;
+    padding: 12px 8px;
+    width: 100%;
+    background: #ffffff;
+    min-height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+ul#lists li ul.cards li p {
+    margin: 0;
+}
+
+#insert-column {
+    height: fit-content;
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: 0 !important;
+}
+
+#insert-column a {
+    display: block;
+    width: fit-content;
+    height: 100%;
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+    opacity: .7;
+    transition: .15s;
+}
+
+#insert-column a:hover {
+    opacity: 1;
+}
+
+#insert-column form {
+    background: #f1f2f4;
+    border-radius: 12px;
+    padding: 8px;
+}
+
+.insert-controls {
+    flex-direction: row;
+    display: flex;
+}
+
+.insert-controls button {
+    font-size: 14px;
+    min-width: 100px;
+    padding: 6px 8px;
+    margin-right: 6px;
+}
+
+
+.insert-controls a {
+    color: black !important;
+    opacity: .7;
+    text-decoration: none;
+    padding: 8px;
+    transition: .15s;
+}
+
+.insert-controls a:hover {
+    opacity: 1;
+}
+
+.insert-item {
+    cursor: initial !important;
+    background: transparent !important;
+    padding: 0px !important;
+    box-shadow: none !important;
+}
+
+.insert-item textarea,
+#insert-column textarea {
+    margin: 0 0 8px;
+    padding: 12px 8px;
+    width: 100%;
+    background: #ffffff;
+    min-height: 36px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.insert-item .insert-toggle {
+    display: block;
+    width: fit-content;
+    height: 100%;
+    padding: 8px;
+    color: rgba(0, 0, 0, .5);
+    text-decoration: none;
+    background: #ffffff;
+    border-radius: 8px;
+    width: auto;
+    transition: .15s;
+    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
+
+}
+
+.insert-item .insert-toggle:hover {
+    color: black;
+}
