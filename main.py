@@ -3,7 +3,14 @@ from fasthtml.common import *
 
 app, rt, (columns, Column), (items, Item) = fast_app(
     "data/board.db",
-    hdrs=(Link(rel="stylesheet", href="assets/styles.css", type="text/css"),),
+    hdrs=(
+        Link(
+            rel="stylesheet",
+            href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css",
+            type="text/css",
+        ),
+        Link(rel="stylesheet", href="assets/styles.css", type="text/css"),
+    ),
     columns=dict(id=int, title=str, position=int, pk="id"),
     items=dict(id=int, content=str, column=int, position=int, pk="id"),
 )
@@ -25,14 +32,17 @@ def __ft__(self: Column):
 
 @patch
 def __ft__(self: Item):
-    return Li(P(self.content))
+    return Li(
+        P(self.content), A(Span(cls="mdi mdi-pencil-outline")), cls="card-container"
+    )
 
 
 @rt
 def insert_form_toggle(column_id: int):
     return Li(
         A(
-            f"+ Add a {'list' if column_id == 0 else 'card'}",
+            Span(cls="mdi mdi-plus"),
+            f"Add a {'list' if column_id == 0 else 'card'}",
             hx_post=insert_form,
             hx_vals={"column_id": column_id},
             hx_swap="outerHTML",
@@ -47,7 +57,9 @@ def insert_form_toggle(column_id: int):
 def insert_form(column_id: int):
     return Form(
         Textarea(
-            placeholder="Enter list name...",
+            placeholder=(
+                "Enter list name..." if column_id == 0 else "Enter a title..."
+            ),
             id="title" if column_id == 0 else "content",
         ),
         Div(
@@ -61,7 +73,7 @@ def insert_form(column_id: int):
                 hx_swap="beforebegin",
             ),
             A(
-                "X",
+                Span(cls="mdi mdi-close"),
                 id="insert-form-cancel",
                 hx_post=insert_form_toggle,
                 hx_vals={"column_id": column_id},

@@ -33,6 +33,19 @@ h2 {
     overflow-wrap: anywhere;
 }
 
+button {
+    padding: 6px 12px;
+    background: #0c66e4;
+    color: white;
+    font-weight: 500;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #0055cc;
+}
+
 ul#lists {
     padding: 12px 6px;
     display: flex;
@@ -52,7 +65,7 @@ ul#lists li {
 }
 
 ul.cards {
-    padding: 0 0 4px;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -64,7 +77,6 @@ ul#lists li ul.cards li {
     padding: 12px 8px;
     width: 100%;
     background: #ffffff;
-    min-height: 36px;
     border-radius: 8px;
     cursor: pointer;
 }
@@ -74,24 +86,27 @@ ul#lists li ul.cards li p {
 }
 
 #insert-column {
-    height: fit-content;
-    background: rgba(0, 0, 0, 0.2) !important;
+    height: fit-content !important;
+    background: transparent !important;
     padding: 0 !important;
+    box-shadow: none !important;
 }
 
 #insert-column a {
     display: block;
-    width: fit-content;
+    width: 100%;
     height: 100%;
-    padding: 8px;
+    padding: 12px 8px;
     color: white;
     text-decoration: none;
-    opacity: .7;
+    background: rgba(255, 255, 255, .22);
     transition: .15s;
+    border-radius: 12px;
+    font-weight: 500;
 }
 
 #insert-column a:hover {
-    opacity: 1;
+    background: rgba(255, 255, 255, .16);
 }
 
 #insert-column form {
@@ -106,24 +121,40 @@ ul#lists li ul.cards li p {
 }
 
 .insert-controls button {
-    font-size: 14px;
     min-width: 100px;
-    padding: 6px 8px;
-    margin-right: 6px;
+    margin-right: 4px;
 }
-
 
 .insert-controls a {
     color: black !important;
-    opacity: .7;
+    opacity: .5 !important;
     text-decoration: none;
-    padding: 8px;
+    padding: 2px !important;
     transition: .15s;
 }
 
-.insert-controls a:hover {
-    opacity: 1;
+#insert-column .insert-controls a,
+.insert-controls a {
+    width: fit-content;
+    width: 35px;
+    text-align: center;
 }
+
+#insert-column .insert-controls a:hover,
+.insert-controls a:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.insert-controls a:hover {
+    opacity: 1 !important;
+}
+
+.insert-controls a span {
+    font-size: 22px;
+    line-height: 30px;
+}
+
 
 .insert-item {
     cursor: initial !important;
@@ -147,17 +178,58 @@ ul#lists li ul.cards li p {
     display: block;
     width: fit-content;
     height: 100%;
-    padding: 8px;
-    color: rgba(0, 0, 0, .5);
+    padding: 6px;
+    color: black;
     text-decoration: none;
-    background: #ffffff;
+    background: transparent;
     border-radius: 8px;
     width: auto;
     transition: .15s;
-    box-shadow: var(--ds-shadow-raised, 0px 1px 1px #091e4240, 0px 0px 1px #091e424f);
-
+    box-shadow: none;
+    color: rgba(0, 0, 0, .6);
+    font-weight: 500;
 }
 
 .insert-item .insert-toggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 1);
+}
+
+.insert-toggle span {
+    line-height: 14px;
+    font-size: 18px;
+    margin-right: 2px;
+}
+
+.card-container {
+    position: relative;
+}
+
+.card-container:hover {
+    outline: #0055cc auto 2px;
+}
+
+.card-container a {
+    position: absolute;
+    background: white;
+    padding: 4px;
+    border-radius: 100%;
     color: black;
+    width: 26px;
+    text-align: center;
+    height: 26px;
+    transition: .15s;
+    top: 4px;
+    right: 4px;
+    font-size: 16px;
+    line-height: 18px;
+    display: none;
+}
+
+.card-container:hover a {
+    display: block;
+}
+
+.card-container a:hover {
+    background: #f1f2f4;
 }
